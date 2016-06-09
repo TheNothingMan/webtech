@@ -5,8 +5,18 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href=index.css type="text/css" />
     <link rel="stylesheet" href=icons.css type="text/css" />
-
-    <script language="javascript" src="articlefunc.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		//init the first article
+		$(document).ready(function(){
+			$("#article_content").load("about_me.htm");
+		});
+		
+		//that's all
+		function change_article(id){
+			$("#article_content").load(id+".htm");
+		}
+	</script>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
   </head>
 
@@ -26,10 +36,10 @@
       <nav>
         <ul>
           <li>
-            <a class="nav_link" href="javascript:void(0)" onclick="return change_article('about_me')">Über mich</a>
+            <a class="nav_link" href="javascript:void(0)" onclick="change_article('about_me')" id="about_me">Über mich</a>
           </li>
           <li>
-            <a class="nav_link" href="javascript:void(0)" onclick="return change_article('kompetenzen')">Kompetenzen</a>
+            <a class="nav_link" href="javascript:void(0)" onclick="change_article('kompetenzen')">Kompetenzen</a>
           </li>
           <li><a class="nav_link" href="">Referenzen</a></li>
           <li><a class="nav_link" href="">Kontakt</a></li>
@@ -37,43 +47,7 @@
       </nav>
 
       <main>
-        <article id="about_me">
-          <section id="datas">
-            <h1><span class="icon-hsc-square"></span>Persönliches</h1>
-            <div class="section_wrapper">
-              <div class="table">
-                <div class="td">
-                  <div class="tr"><p>Name:</p></div>
-                  <div class="tr"><p>Geb.:</p></div>
-                  <div class="tr"><p>Status:</p></div>
-                </div>
-                <div class="td">
-                  <div class="tr"><p class="rechte_spalte">Karl Scheler</p></div>
-                  <div class="tr"><p class="rechte_spalte">01.12.1989</p></div>
-                  <div class="tr"><p class="rechte_spalte">Student</p></div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="life">
-            <h1><span class="icon-hsc-square"></span>Karriere & Ausbildung</h1>
-            <div class="section_wrapper">
-              <p>tt.mm. bis tt.mm.</p>
-              <p>Arbeit bei... als...</p>
-              <p>tt.mm. bis tt.mm.</p>
-              <p>bla bla bla bla</p>
-            </div>
-          </section>
-        </article>
-
-        <article id="kompetenzen">
-          <section><p>Webentwicklung</p></section>
-          <section><p>Softwareentwicklung</p></section>
-          <section><p>Elektroinstallation</p></section>
-          <section><p>Netzwerktechniker</p></section>
-          <section><p>Musik</p></section>
-        </article>
+        <article id="article_content"></article>
       </main>
 
       <aside>

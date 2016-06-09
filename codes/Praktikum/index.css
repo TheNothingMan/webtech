@@ -104,7 +104,7 @@ main{
 }
 
 main article{
-  display: none;
+  display: block;
   padding: 20px;
   padding-right: none;
 }
